@@ -1,11 +1,10 @@
-
 async function getSWPlanet() {
     const ul = document.getElementById('planets');
-    const SWContain = document.getElementById('planetNames');
     const nameHeading = document.createElement('h2');
     nameHeading.innerText = 'Planet Names';
     ul.innerText = '';
-    ul.append(nameHeading, SWContain);
+    ul.append(nameHeading);
+
     try {
         const response = await axios.get('https://swapi.dev/api/planets');
         for (let planet of response.data.results) {
@@ -17,26 +16,24 @@ async function getSWPlanet() {
     }
 }
 
-
-function makePlanetLI(planet){
-    const newLI = document.createElement('LI');
-    const planetName = document.createElement('B');
+function makePlanetLI(planet) {
+    const newLI = document.createElement('li');
+    const planetName = document.createElement('b');
     planetName.innerText = planet.name;
     newLI.append(planetName);
     return newLI;
 }
 
-// Planet Data: Climate
 async function getSWPlanetData() {
     const ulData = document.getElementById('planetClimateList');
-    const SWDataContain = document.getElementById('starWarsDataContainer');
     const dataHeading = document.createElement('h2');
-    dataHeading.innerText = 'Planet Names';
+    dataHeading.innerText = 'Planet Climates';
     ulData.innerText = '';
-    ulData.append(dataHeading, SWDataContain);
+    ulData.append(dataHeading);
+
     try {
         const response = await axios.get('https://swapi.dev/api/planets');
-        console.log(`response: ${response.data.results}`)
+        console.log(`response: ${response.data.results}`);
         for (let planet of response.data.results) {
             console.log(`Climate of Planets of Star Wars: ${planet.name} : ${planet.climate}`);
             ulData.append(makePlanetDataLI(planet));
@@ -46,31 +43,24 @@ async function getSWPlanetData() {
     }
 }
 
-
-function makePlanetDataLI(planet){
-    const newLI = document.createElement('LI');
-    const planetName = document.createElement('B');
-    planetName.innerText = planet.name + ': ' + planet.climate;
-    newLI.append(planetName);
+function makePlanetDataLI(planet) {
+    const newLI = document.createElement('li');
+    newLI.innerText = `${planet.name}: ${planet.climate}`;
     return newLI;
 }
 
-
 const planetBtn = document.querySelector('#starWars');
 planetBtn.addEventListener('click', () => {
-    getSWPlanet()
-    setTimeout( () => {
-        const planetDataContainer = document.getElementById('starWarsDataContainer')
-        const planetDataBtn = document.createElement('button')
+    getSWPlanet();
+    setTimeout(() => {
+        const planetDataContainer = document.getElementById('starWarsDataContainer');
+        const planetDataBtn = document.createElement('button');
         planetDataBtn.id = 'planetData';
-        planetBtn.parentNode.replaceChild(planetDataBtn, planetBtn); 
         planetDataBtn.innerText = 'Get Planet Climate';
+        planetBtn.parentNode.replaceChild(planetDataBtn, planetBtn);
         planetDataContainer.append(planetDataBtn);
-        planetDataBtn.addEventListener('click', () => {
-            getSWPlanetData()
-        }); // Move the event listener here
-        
-    }, 2000)
-});
 
+        planetDataBtn.addEventListener('click', getSWPlanetData);
+    }, 2000);
+});
 

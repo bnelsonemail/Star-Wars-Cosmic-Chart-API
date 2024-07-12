@@ -35,7 +35,7 @@ button {
     transition: 1s;
   }
 
-#planets {
+#planets, #planetClimateList {
     font-size: 2rem;
     color: blue;
     font-family: cursive;
@@ -46,7 +46,7 @@ button {
     -1px -1px 0 red;
   }
 
-  #starWarsContainer {
+  #starWarsContainer, #starWarsDataContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,3 +58,6 @@ h2 {
     margin-top: 0rem;
     margin-bottom: 20px;
 }
+
+
+
