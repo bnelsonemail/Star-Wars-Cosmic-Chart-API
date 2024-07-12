@@ -1,0 +1,60 @@
+body {
+    background-image: url(https://assets.codepen.io/12465361/DeathStar.png?format=auto);
+    color: blue;
+}
+
+h1 {
+    font-family: cursive;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-shadow:
+    1px 1px 0 red,
+    -1px 1px 0 red,
+    1px -1px 0 red,
+    -1px -1px 0 red;
+}
+
+button {
+    background-color: red;
+    color: blue;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: cursive;
+    text-shadow:
+    1px 1px 0 white,
+    -1px 1px 0 white,
+    1px -1px 0 white,
+    -1px -1px 0 white;
+  }
+
+  button:hover {
+    background-color: blue;
+    transition: 1s;
+  }
+
+#planets {
+    font-size: 2rem;
+    color: blue;
+    font-family: cursive;
+    text-shadow:
+    1px 1px 0 red,
+    -1px 1px 0 red,
+    1px -1px 0 red,
+    -1px -1px 0 red;
+  }
+
+  #starWarsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0rem;
+  }
+
+h2 {
+    margin-top: 0rem;
+    margin-bottom: 20px;
+}
