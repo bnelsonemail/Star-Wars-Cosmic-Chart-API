@@ -47,7 +47,7 @@ async function getSWPlanetData() {
 }
 
 
-function makeDataPlanetLI(planet){
+function makePlanetDataLI(planet){
     const newLI = document.createElement('LI');
     const planetName = document.createElement('B');
     planetName.innerText = planet.name + ': ' + planet.climate;
