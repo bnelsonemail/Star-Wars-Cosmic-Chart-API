@@ -33,7 +33,6 @@ async function getSWPlanetData() {
 
     try {
         const response = await axios.get('https://swapi.dev/api/planets');
-        console.log(`response: ${response.data.results}`);
         for (let planet of response.data.results) {
             console.log(`Climate of Planets of Star Wars: ${planet.name} : ${planet.climate}`);
             ulData.append(makePlanetDataLI(planet));
@@ -60,7 +59,10 @@ planetBtn.addEventListener('click', () => {
         planetBtn.parentNode.replaceChild(planetDataBtn, planetBtn);
         planetDataContainer.append(planetDataBtn);
 
-        planetDataBtn.addEventListener('click', getSWPlanetData);
+        planetDataBtn.addEventListener('click', () => {
+            getSWPlanetData()
+            planetDataBtn.style.display = 'none'
+        });
     }, 2000);
 });
 
